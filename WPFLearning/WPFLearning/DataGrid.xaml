@@ -1,0 +1,27 @@
+﻿<Window x:Class="WPFLearning.DataGrid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DataGrid" Height="300" Width="300">
+    <Grid>
+        <DataGrid x:Name="DataView">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Imie" Binding="{Binding Imie}"/>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Nazwisko}"/>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <StackPanel  Margin="10,0,0,0">
+                        <TextBlock Text="Podwladni"/>
+                        <DataGrid ItemsSource="{Binding Podwladni}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Imie" Binding="{Binding Imie}"/>
+                                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Nazwisko}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                    
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+    </Grid>
+</Window>
